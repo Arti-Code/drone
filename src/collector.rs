@@ -45,7 +45,7 @@ impl Collector {
                 PartDef {shape_size: 6.0, relative_position: Vec2::new(20.0, 20.0)},
             ]
         };
-        let unit = Unit::new_complex(parts, physics);
+        let unit = Unit::new(physics);
         let key = unit.key;
         self.units.insert(key, unit);
         return key;

@@ -65,7 +65,7 @@ impl Simulation {
         //    let poly = Unit::new_dyn_poly(verts, pos, &mut self.physics);
         //    self.units.add_unit(poly, &mut self.physics);
         //}
-        //self.units.add_many_units(10, &mut self.physics);
+        self.units.add_many_units(48, &mut self.physics);
         //let ball01 = Unit::new_dyn_circle(25.0, Vec2::new(600.0, 600.0), &mut self.physics);
         //let ball02 = Unit::new_dyn_circle(25.0, Vec2::new(650.0, 650.0), &mut self.physics);
         //let static_obj = Unit::new_static_rect([800.0, 10.0], Vec2::new(600.0, 40.0), &mut self.physics);
@@ -82,7 +82,7 @@ impl Simulation {
     }
 
     pub fn update(&mut self) {
-        //self.update_units();
+        self.update_units();
         for jet in self.jet.iter_mut() {
             jet.update(get_frame_time(), &mut self.physics);
         }
@@ -116,7 +116,7 @@ impl Simulation {
         //        draw_line(p1.x, p1.y, p2.x, p2.y, 2.0, RED);
         //    }
         //}
-        //self.draw_units();
+        self.draw_units();
     }
 
     pub fn draw_units(&self) {
@@ -150,37 +150,6 @@ impl Simulation {
             jet.turn_right();
             println!("right");
         }
-        /* if is_key_pressed(KeyCode::S) {
-            match self.joint {
-                None => {},
-                Some(joint_handle) => {
-                    let joint = self.physics.impulse_joint_set.get_mut(joint_handle).unwrap();
-                    let mut limits = joint.data.as_prismatic_mut().unwrap().limits().unwrap();
-                    let mut max = limits.max;
-                    let mut min = limits.min;
-                    max -= 10.0;
-                    joint.data.as_prismatic_mut().unwrap().set_limits([min, max]);
-                }
-            }
-        }
-        if is_key_pressed(KeyCode::Q) {
-            match self.joint {
-                None => {},
-                Some(joint_handle) => {
-                    let joint = self.physics.impulse_joint_set.get_mut(joint_handle).unwrap();
-                    joint.data.set_motor_velocity(JointAxis::X, 5.0, 0.2);
-                }
-            }
-        }
-        if is_key_pressed(KeyCode::A) {
-            match self.joint {
-                None => {},
-                Some(joint_handle) => {
-                    let joint = self.physics.impulse_joint_set.get_mut(joint_handle).unwrap();
-                    joint.data.set_motor_velocity(JointAxis::X, -5.0, 0.2);
-                }
-            }
-        } */
     }
 
     fn mouse_input(&mut self) {

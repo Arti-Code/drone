@@ -153,7 +153,7 @@ impl Physics {
         return self.rigid_bodies.insert(static_body);
     }
 
-    pub fn add_collider(&mut self, body_handle: RigidBodyHandle, rel_position: &Vec2, rotation: f32, shape: SharedShape, physics_props: PhysicsProperities) {
+    pub fn add_collider(&mut self, body_handle: RigidBodyHandle, rel_position: &Vec2, rotation: f32, shape: SharedShape, physics_props: PhysicsProperities) -> ColliderHandle {
         let iso = make_isometry(rel_position.x, rel_position.y, rotation);
         let collider = match shape.shape_type() {
             ShapeType::Ball => {
@@ -180,7 +180,7 @@ impl Physics {
                 ColliderBuilder::ball(5.0).position(iso).build()
             },
         };
-        self.colliders.insert_with_parent(collider, body_handle, &mut self.rigid_bodies);
+        return self.colliders.insert_with_parent(collider, body_handle, &mut self.rigid_bodies);
     }
 
     pub fn add_dynamic(&mut self, key: u64, position: &Vec2, rotation: f32, shape: SharedShape, physics_props: PhysicsProperities) -> RigidBodyHandle {

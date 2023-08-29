@@ -9,8 +9,8 @@ pub const SCREEN_HEIGHT: f32 = 900.0;
 pub const WORLD_W: f32 = 1200.0;
 pub const WORLD_H: f32 = 900.0;
 
-pub const SIZE_MIN: u32 = 2;
-pub const SIZE_MAX: u32 = 10;
+pub const SIZE_MIN: u32 = 5;
+pub const SIZE_MAX: u32 = 14;
 
-pub const SPEED: i32 = 10000;
+pub const SPEED: i32 = 3000;
 pub const ROTATE: f32 = 1.0;
